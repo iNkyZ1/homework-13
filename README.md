@@ -1,16 +1,85 @@
-# React + Vite
+# homework-13
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Описание
 
-Currently, two official plugins are available:
+Это учебный проект, созданный для практики работы с формами, обработкой данных и разработкой собственных UI-компонентов.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+В проекте реализованы две формы:
 
-## React Compiler
+- **Signin** — форма входа
+- **Signup** — форма регистрации
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Обе формы используют кастомный компонент ввода **TextInput** и принимают проп `onSubmit`, в который передают собранные данные.
 
-## Expanding the ESLint configuration
+## Используемые технологии
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Vite**
+- **React 18**
+- **JavaScript (ESM + JSX)**
+- **CSS**
+- **Функциональные компоненты + useState**
+
+## Запуск проекта
+
+```bash
+npm install
+npm run dev
+```
+
+## Структура проекта
+
+```bash
+src/
+  App.jsx                  # Подключение форм, обработчики onSubmit
+  main.jsx                 # Точка входа
+
+  components/
+    TextInput/
+      TextInput.jsx        # Универсальный компонент поля ввода
+      TextInput.css
+
+    Signin/
+      Signin.jsx           # Форма входа
+
+    Signup/
+      Signup.jsx           # Форма регистрации
+```
+
+## Компоненты
+
+- TextInput
+
+Кастомный компонент с поддержкой:
+
+- label / description
+- required
+- icon (React-элемент)
+- error
+- disabled
+- контролируемый ввод (value + onChange)
+
+## Signin
+
+Содержит поля:
+
+- email
+- password
+
+Вызывает onSubmit(values) при отправке.
+
+## Signup
+
+Содержит поля:
+
+- name
+- nickname (с иконкой @)
+- email
+- gender (male / female)
+- password
+- passwordConfirm
+
+Также вызывает onSubmit(values).
+
+## Назначение проекта
+
+Проект создан в учебных целях.
