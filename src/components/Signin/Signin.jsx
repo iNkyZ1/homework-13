@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import TextInput from "../TextInput/TextInput";
+import TextInput from "../common/TextInput/TextInput";
 
 function Signin(props) {
   const { onSubmit } = props;

@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import TextInput from "../TextInput/TextInput";
+import React, { useState, useMemo } from "react";
+import TextInput from "../common/TextInput/TextInput";
 
 function Signup(props) {
   const { onSubmit } = props;
@@ -10,6 +10,12 @@ function Signup(props) {
   const [gender, setGender] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirm, setPasswordConfirm] = useState("");
+
+  const handleGenderChange = (event) => {
+    setGender(event.target.value);
+  };
+
+  const isMale = useMemo(() => gender === "male", [gender]);
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -78,10 +84,8 @@ function Signup(props) {
             type="radio"
             name="gender"
             value="male"
-            checked={gender === "male"}
-            onChange={function (event) {
-              setGender(event.target.value);
-            }}
+            checked={isMale}
+            onChange={handleGenderChange}
           />
           <span style={{ marginLeft: "4px" }}>Мужской</span>
         </label>
@@ -91,10 +95,8 @@ function Signup(props) {
             type="radio"
             name="gender"
             value="female"
-            checked={gender === "female"}
-            onChange={function (event) {
-              setGender(event.target.value);
-            }}
+            checked={!isMale}
+            onChange={handleGenderChange}
           />
           <span style={{ marginLeft: "4px" }}>Женский</span>
         </label>
